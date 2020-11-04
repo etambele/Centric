@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductService {
 
-    public ProductDTO addProduct(ProductDTO productDTO);
+    ProductDTO addProduct(ProductDTO productDTO);
 
-    public List<ProductDTO> getProductByCategory(String category);
+    List<ProductDTO> getProductByCategory(String category, Integer pageSize, Integer offSet);
 }

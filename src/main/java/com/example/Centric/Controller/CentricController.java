@@ -27,7 +27,7 @@ public class CentricController implements ICentricController{
     }
 
     @Override
-    public ResponseEntity<List<ProductDTO>> getProductByCategory(String category) {
-        return new ResponseEntity<>(productService.getProductByCategory(category), HttpStatus.OK);
+    public ResponseEntity<List<ProductDTO>> getProductByCategory(String category, Integer pageSize, Integer offSet) {
+        return new ResponseEntity<>(productService.getProductByCategory(category, pageSize, offSet), HttpStatus.OK);
     }
 }

@@ -13,6 +13,8 @@ public interface ICentricController {
     ResponseEntity<ProductDTO> addProduct(@RequestBody ProductDTO itemDTO);
 
     @RequestMapping(value = Routes.PRODUCT_BY_CATEGORY, method= RequestMethod.GET)
-    ResponseEntity<List<ProductDTO>> getProductByCategory(@RequestParam String category);
+    ResponseEntity<List<ProductDTO>> getProductByCategory(@RequestParam String category,
+                                                          @RequestParam(required = false) Integer pageSize,
+                                                          @RequestParam(required = false) Integer offSet);
 }
 

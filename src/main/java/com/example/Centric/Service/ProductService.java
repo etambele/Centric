@@ -30,12 +30,16 @@ public class ProductService implements IProductService{
     }
 
     @Override
-    public List<ProductDTO> getProductByCategory(String category) {
+    public List<ProductDTO> getProductByCategory(String category, Integer pageSize, Integer offSet) {
 
         List<Product> products = productRepository.getProductsByCategory(category);
-        System.out.println(products.size());
-        return products.stream()
+        List<ProductDTO> productDTOS = products.stream()
                 .map(converter::convertProductToProductDTO)
                 .collect(Collectors.toList());
+        if(pageSize != null && offSet != null && offSet <= productDTOS.size()){
+            productDTOS = productDTOS.subList(offSet, Math.min(offSet + pageSize, productDTOS.size()));
+        }
+
+        return productDTOS;
     }
 }
