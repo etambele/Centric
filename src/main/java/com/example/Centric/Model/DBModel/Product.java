@@ -19,5 +19,6 @@ public class Product {
     @ElementCollection
     private List<String> tags;
     private String category;
+    private String createdAt;
 
 }

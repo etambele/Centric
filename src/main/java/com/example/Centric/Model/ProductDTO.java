@@ -10,6 +10,7 @@ public class ProductDTO {
     private String brand;
     private List<String> tags;
     private String category;
+    private String createdAt;
 
     private ProductDTO(){
     }
@@ -62,6 +63,14 @@ public class ProductDTO {
         this.category = category;
     }
 
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public static class Builder{
         private String id;
         private String name;
@@ -69,6 +78,7 @@ public class ProductDTO {
         private String brand;
         private List<String> tags;
         private String category;
+        private String createdAt;
 
         public Builder(){
 
@@ -102,6 +112,10 @@ public class ProductDTO {
             this.category = category;
             return this;
         }
+        public Builder createdAt(String createdAt){
+            this.createdAt = createdAt;
+            return this;
+        }
 
         public ProductDTO build(){
             ProductDTO productDTO = new ProductDTO();
@@ -111,6 +125,7 @@ public class ProductDTO {
             productDTO.brand = this.brand;
             productDTO.tags = this.tags;
             productDTO.category = this.category;
+            productDTO.createdAt = this.createdAt;
             return productDTO;
         }
 

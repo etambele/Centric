@@ -31,9 +31,8 @@ public class ProductService implements IProductService{
 
     @Override
     public List<ProductDTO> getProductByCategory(String category) {
-        List<Product> products = new ArrayList<>();
 
-        productRepository.findAll().forEach(products::add);
+        List<Product> products = productRepository.getProductsByCategory(category);
         System.out.println(products.size());
         return products.stream()
                 .map(converter::convertProductToProductDTO)

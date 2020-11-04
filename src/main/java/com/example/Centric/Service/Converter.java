@@ -4,6 +4,8 @@ import com.example.Centric.Model.DBModel.Product;
 import com.example.Centric.Model.ProductDTO;
 import org.springframework.stereotype.Component;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Component
@@ -17,6 +19,7 @@ public class Converter {
         product.setBrand(productDTO.getBrand());
         product.setTags(productDTO.getTags());
         product.setCategory(productDTO.getCategory());
+        product.setCreatedAt(ZonedDateTime.now(ZoneId.of("Z")).toString());
         return product;
     }
 
@@ -28,6 +31,7 @@ public class Converter {
                 .brand(product.getBrand())
                 .tags(product.getTags())
                 .category(product.getCategory())
+                .createdAt(product.getCreatedAt())
                 .build();
 
     }
