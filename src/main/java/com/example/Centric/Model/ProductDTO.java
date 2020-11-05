@@ -1,5 +1,8 @@
 package com.example.Centric.Model;
 
+import com.example.Centric.Model.DBModel.Product;
+
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public class ProductDTO {
@@ -10,7 +13,7 @@ public class ProductDTO {
     private String brand;
     private List<String> tags;
     private String category;
-    private String createdAt;
+    private ZonedDateTime createdAt;
 
     private ProductDTO(){
     }
@@ -63,11 +66,11 @@ public class ProductDTO {
         this.category = category;
     }
 
-    public String getCreatedAt() {
+    public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(ZonedDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -78,7 +81,7 @@ public class ProductDTO {
         private String brand;
         private List<String> tags;
         private String category;
-        private String createdAt;
+        private ZonedDateTime createdAt;
 
         public Builder(){
 
@@ -112,7 +115,7 @@ public class ProductDTO {
             this.category = category;
             return this;
         }
-        public Builder createdAt(String createdAt){
+        public Builder createdAt(ZonedDateTime createdAt){
             this.createdAt = createdAt;
             return this;
         }

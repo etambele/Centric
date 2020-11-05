@@ -6,7 +6,7 @@ import com.example.Centric.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,16 +24,18 @@ public class ProductService implements IProductService{
 
     @Override
     public ProductDTO addProduct(ProductDTO productDTO) {
+
         Product productToSave = converter.convertProductDTOToProduct(productDTO);
         productRepository.save(productToSave);
         return converter.convertProductToProductDTO(productToSave);
     }
 
     @Override
-    public List<ProductDTO> getProductByCategory(String category, Integer pageSize, Integer offSet) {
+    public List<ProductDTO> getProductByCategory(String category, Integer pageSize, Integer offSet){
 
         List<Product> products = productRepository.getProductsByCategory(category);
         List<ProductDTO> productDTOS = products.stream()
+                .sorted(Comparator.comparing(Product::getCreatedAt))
                 .map(converter::convertProductToProductDTO)
                 .collect(Collectors.toList());
         if(pageSize != null && offSet != null && offSet <= productDTOS.size()){

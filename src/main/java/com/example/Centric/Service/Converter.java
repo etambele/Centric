@@ -19,7 +19,7 @@ public class Converter {
         product.setBrand(productDTO.getBrand());
         product.setTags(productDTO.getTags());
         product.setCategory(productDTO.getCategory());
-        product.setCreatedAt(ZonedDateTime.now(ZoneId.of("Z")).toString());
+        product.setCreatedAt(ZonedDateTime.now(ZoneId.of("Z")));
         return product;
     }
 

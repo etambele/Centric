@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,6 @@ public class Product {
     @ElementCollection
     private List<String> tags;
     private String category;
-    private String createdAt;
+    private ZonedDateTime createdAt;
 
 }
