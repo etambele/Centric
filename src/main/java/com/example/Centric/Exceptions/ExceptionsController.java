@@ -6,6 +6,8 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
+
 import java.time.ZonedDateTime;
 
 @ControllerAdvice
@@ -24,6 +26,14 @@ public class ExceptionsController {
                 HttpStatus.METHOD_NOT_ALLOWED,
                 ZonedDateTime.now());
         return new ResponseEntity<>(exceptionDTO, HttpStatus.METHOD_NOT_ALLOWED);
+    }
+
+    @ExceptionHandler(value = HttpClientErrorException.class)
+    public ResponseEntity<Object> httpClientException(HttpClientErrorException e) {
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Rest Template URI my not be reachable: "+e.getMessage(),
+                HttpStatus.NOT_FOUND,
+                ZonedDateTime.now());
+        return new ResponseEntity<>(exceptionDTO, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(value = RuntimeException.class)

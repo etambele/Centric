@@ -1,6 +1,5 @@
 package com.example.Centric.Model;
 
-import com.example.Centric.Model.DBModel.Product;
 
 import java.time.ZonedDateTime;
 import java.util.List;

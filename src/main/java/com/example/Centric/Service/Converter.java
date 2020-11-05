@@ -1,6 +1,6 @@
 package com.example.Centric.Service;
 
-import com.example.Centric.Model.DBModel.Product;
+import com.example.Centric.Model.Entity.Product;
 import com.example.Centric.Model.ProductDTO;
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,6 @@
 package com.example.Centric.Service;
 
-import com.example.Centric.Model.DBModel.Product;
+import com.example.Centric.Model.Entity.Product;
 import com.example.Centric.Model.ProductDTO;
 import com.example.Centric.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,7 @@ public class ProductService implements IProductService{
     public ProductDTO addProduct(ProductDTO productDTO) {
 
         Product productToSave = converter.convertProductDTOToProduct(productDTO);
-        productRepository.save(productToSave);
-        return converter.convertProductToProductDTO(productToSave);
+        return converter.convertProductToProductDTO(productRepository.save(productToSave));
     }
 
     @Override

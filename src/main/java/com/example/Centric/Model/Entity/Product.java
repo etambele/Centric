@@ -1,4 +1,4 @@
-package com.example.Centric.Model.DBModel;
+package com.example.Centric.Model.Entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
