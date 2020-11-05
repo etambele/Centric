@@ -30,7 +30,7 @@ public class ExceptionsController {
 
     @ExceptionHandler(value = HttpClientErrorException.class)
     public ResponseEntity<Object> httpClientException(HttpClientErrorException e) {
-        ExceptionDTO exceptionDTO = new ExceptionDTO("Rest Template URI my not be reachable: "+e.getMessage(),
+        ExceptionDTO exceptionDTO = new ExceptionDTO(e.getMessage(),
                 HttpStatus.NOT_FOUND,
                 ZonedDateTime.now());
         return new ResponseEntity<>(exceptionDTO, HttpStatus.NOT_FOUND);
